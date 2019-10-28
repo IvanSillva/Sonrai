@@ -32,42 +32,47 @@ void Tabela::setvetCL(colunas vetCL)
   this->vetCL[this->tamcl] = vetCL;
   cout<<this->vetCL[this->tamcl].name<<endl;
   cout<<this->vetCL[this->tamcl].type<<endl;
-  this->tamcl += 1;
+  this->tamcl = this->tamcl+1;
+  cout<<this->tamcl<<endl;
 }
 
-colunas Tabela::getvetCL()
+colunas Tabela::getvetCL(int x)
 {
-  return this->vetCL[0];
+  return this->vetCL[x];
+}
+
+int Tabela::getTamcl()
+{
+  return this->tamcl;
 }
 
 //=======================================================
 
-void leitura()
+void construtor()
 {
-      colunas test[2];
-      test[0].name = "Jorge";
-      test[0].type = "int";
-      test[1].name = "Ivan";
-      test[1].type = "float";
+    colunas test[2];
+    test[0].name = "Jorge";
+    test[0].type = "int";
+    test[1].name = "Ivan";
+    test[1].type = "float";
 
     Tabela teste;
     teste.setvetCL(test[0]);
     teste.setvetCL(test[1]);
 
 
+    ofstream file;
+    file.open("data.csv");
 
 
 
+    for(int i=0;i<teste.getTamcl();i++)
+    {
+          string temp = teste.getvetCL(i).name;
+          file<<temp<<",";
+    }
 
-
-
-
-
-
-
-
-
-
+    file.close();
 
     /*Roteador* r1 = new Roteador();r1->setIP("192.168.0.1");
     Roteador* r2 = new Roteador();r2->setIP("192.168.0.2");

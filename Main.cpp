@@ -8,6 +8,6 @@ using namespace std;
 int main()
 {
 
-    leitura();
+    construtor();
     return 0;
 }                                                                                                                                             

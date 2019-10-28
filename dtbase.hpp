@@ -12,8 +12,8 @@ class Tabela
     public:
     string PK;
     string FK;
-    int tamcl;
-    colunas vetCL[3];
+    int tamcl = 0;
+    colunas vetCL[30];
 
 
     void setPK(string PK);
@@ -23,8 +23,10 @@ class Tabela
     string getFK();
 
     void setvetCL(colunas vetCL);
-    colunas getvetCL();
+    colunas getvetCL(int x);
+
+    int getTamcl();
 
 };
 
-void leitura();
+void construtor();
