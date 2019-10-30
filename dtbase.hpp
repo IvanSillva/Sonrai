@@ -30,3 +30,4 @@ class Tabela
 };
 
 void construtor();
+void database(string archive);

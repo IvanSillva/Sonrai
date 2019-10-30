@@ -49,7 +49,14 @@ int Tabela::getTamcl()
 }
 
 //=======================================================
+void database(string archive){
+  ofstream data;
+  data.open("database.txt", ios::app);
+  data<<archive<<endl;
+  data.close();
+}
 
+//Cria Arquivo, Adiciona cabeçalho.
 void construtor()
 {
 
@@ -80,10 +87,14 @@ void construtor()
 
     for(int i=0;i<teste.getTamcl();i++)
     {
-          file<<teste.getvetCL(i).name<<"("<<teste.getvetCL(i).type<<")"<<",";
+          file<<teste.getvetCL(i).name<<"("<<teste.getvetCL(i).type<<")";
+          if(i+1!=teste.getTamcl()){
+            file<<",";
+          }
     }
-    
+    database(name_archive);
     file.close();
  
 }
+
 
