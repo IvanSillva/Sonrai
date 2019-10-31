@@ -2,12 +2,12 @@
 #include <queue>
 
 #include "dtbase.hpp"
+#include "tela.hpp"
 
 using namespace std;
 
 int main()
-{
-
-    construtor();
+{	
+	tela_primary();
     return 0;
 }                                                                                                                                             
