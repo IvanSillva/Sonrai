@@ -21,6 +21,18 @@ void cbc()
 	cout<<"████████████████████████████████████████████\n\n";
 }
 
+void list_tables()
+{
+	ifstream database;
+	database.open("database.txt");
+	string line;
+	while(!database.eof())
+	{
+		getline(database, line);
+		cout << line << endl;
+	}
+	database.close();
+}
 
 void tela_primary()
 {
@@ -35,6 +47,8 @@ void tela_primary()
 	cin>>opc;
 	if(opc == 1)
 		construtor();
+	else if(opc == 3)
+		list_tables();
 
 
 }
