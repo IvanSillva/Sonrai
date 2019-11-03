@@ -34,10 +34,7 @@ void Tabela::setvetCL(colunas vetCL)
 {
 
   this->vetCL[this->tamcl] = vetCL;
-  cout<<this->vetCL[this->tamcl].name<<endl;
-  cout<<this->vetCL[this->tamcl].type<<endl;
   this->tamcl = this->tamcl+1;
-  cout<<this->tamcl<<endl;
 }
 
 colunas Tabela::getvetCL(int x)
@@ -67,7 +64,12 @@ void construtor()
     cin.ignore(100, '\n');
     cout << "Digite o nome do Arquivo:";
     getline(cin, name_archive);
-
+    int k = verify_archive(name_archive);
+    while(k == 1){
+      cout << "Arquivo já existente, digite outro:";
+      getline(cin, name_archive);
+      k = verify_archive(name_archive);
+    }
     name_archive+=".csv";
     file.open(name_archive, ios::app);
 
@@ -91,7 +93,7 @@ void construtor()
 
 
 
-  Tabela teste;
+Tabela teste;
 
     for(int i=0; i<x; i++){
     teste.setvetCL(temp[i]);
@@ -109,6 +111,23 @@ void construtor()
  
 }
 
+int verify_archive(string archive)
+{ 
+  archive += ".csv";
+  ifstream verify;
+  verify.open("database.txt");
+  string line;
+  while(!verify.eof())
+  {
+    getline(verify, line);
+    if(line == archive)
+      return 1;
+  }
+  verify.close();
+   return 0;
+}
+
+
 void primary_key(string archive)
 {
     
@@ -122,8 +141,4 @@ void primary_key(string archive)
 
     file<<pk<<"(unsigned),";
     file.close();
-
 }
-
-
-

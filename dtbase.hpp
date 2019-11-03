@@ -32,3 +32,4 @@ class Tabela
 void construtor();
 void database(string archive);
 void primary_key(string archive);
+int verify_archive(string archive);
