@@ -33,3 +33,5 @@ void construtor();
 void database(string archive);
 void primary_key(string archive);
 int verify_archive(string archive);
+void access_tables();
+void add_line(string archive);

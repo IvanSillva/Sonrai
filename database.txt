@@ -1,7 +1,2 @@
-O.csv
-Teste.csv
-teste1.csv
-teste1.csv
-teste1.csvRonald.csv
-TEste.csv
-Po.csv
+Aluno.csv
+Alunos.csv

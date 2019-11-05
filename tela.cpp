@@ -9,6 +9,7 @@
 #include "dtbase.hpp"
 
 using namespace std;
+
 void cbc()
 {
 	system("clear");
@@ -26,6 +27,7 @@ void list_tables()
 	ifstream database;
 	database.open("database.txt");
 	string line;
+
 	while(!database.eof())
 	{
 		getline(database, line);
@@ -42,14 +44,28 @@ void tela_primary()
 	cout<<"2 - Acessar Tabela"<<endl;
 	cout<<"3 - Listar Tabela"<<endl;
 	cout<<"4 - Sair"<<endl;
+	cout<<endl;
+
 	int opc;
-	cout<<"Opção:";
+	cout<<"Opção: ";
 	cin>>opc;
+
 	if(opc == 1)
 		construtor();
+	else if(opc ==2)
+		access_tables();
 	else if(opc == 3)
 		list_tables();
 
+
+}
+
+void tela_tables()
+{
+	cbc();
+
+	cout<<"1 - Adicionar"<<endl;
+	cout<<endl;
 
 }
 
