@@ -27,6 +27,8 @@ class Tabela
 
     int getTamcl();
 
+    void write_file(string archive, string line);
+
 };
 
 void construtor();

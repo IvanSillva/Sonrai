@@ -36,6 +36,23 @@ void list_tables()
 	database.close();
 }
 
+void tela_tables(string name_archive)
+{
+	cbc();
+	int opc;
+
+	cout<<"1 - Adicionar"<<endl;
+	cout<<endl;
+
+	cout<<"Opção: ";
+	cin>>opc;
+	cout<<endl;
+
+	if(opc == 1)
+		add_line(name_archive);
+
+}
+
 void tela_primary()
 {
 	cbc();
@@ -60,12 +77,5 @@ void tela_primary()
 
 }
 
-void tela_tables()
-{
-	cbc();
 
-	cout<<"1 - Adicionar"<<endl;
-	cout<<endl;
-
-}
 

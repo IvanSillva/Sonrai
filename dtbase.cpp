@@ -47,6 +47,17 @@ int Tabela::getTamcl()
   return this->tamcl;
 }
 
+void Tabela::write_file(string archive, string line)
+{
+    ofstream write;
+    write.open(archive, ios::app);
+
+    write<<line<<",";
+
+    write.close();
+
+}
+
 //=======================================================
 void database(string archive){
   ofstream data;
@@ -104,8 +115,11 @@ void construtor()
       file<<teste.getvetCL(i).name<<"("<<teste.getvetCL(i).type<<"),";
   
       }
+      file<<endl;
       database(name_archive);
       file.close();
+
+      tela_primary();
  
 }
 
@@ -132,7 +146,7 @@ void primary_key(string archive)
     string pk;
 
     cout<<"Digite o nome da Chave Primaria: ";
-    cin>>pk;
+    getline(cin,pk);
 
     ofstream file;
     file.open(archive);
@@ -144,15 +158,20 @@ void primary_key(string archive)
 
 void add_line(string archive)
 {   
+
     ofstream write;
     write.open(archive, ios::app);
-    write << endl;
+  
     ifstream scanner;
     string line;
     scanner.open(archive);
+    cin.ignore(100, '\n');
     getline(scanner, line);
     int coutt = 0;
     string temp;
+
+    Tabela w_file;
+
     for(int i = 0 ; i<line.length(); i++){
         if(line[i] != ','){
         temp += line[i];   
@@ -160,12 +179,13 @@ void add_line(string archive)
           string infile;
           cout << "Digite " << temp << ":";
           getline(cin, infile);
-          write << infile << ",";
+          w_file.write_file(archive,infile);
           temp.clear();
         }
        
     }
 
+    write << endl;
     scanner.close();
     write.close();
 
@@ -177,6 +197,7 @@ void access_tables()
 
     string name_archive;
     cout << "Digite o nome da Tabela: ";
+    cin.ignore(100, '\n');
     getline(cin, name_archive);
 
     int k = verify_archive(name_archive);
@@ -186,8 +207,13 @@ void access_tables()
       cout << "Arquivo não existente, digite outro: ";
       getline(cin, name_archive);
       k = verify_archive(name_archive);
+
     }
 
-    add_line(name_archive);
+    name_archive+=".csv";
+
+    tela_tables(name_archive);
 
 }
+
+

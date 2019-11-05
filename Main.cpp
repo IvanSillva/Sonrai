@@ -7,8 +7,8 @@ using namespace std;
 
 int main()
 {	
-	//tela_primary();
-	add_line("Alunos.csv");
+	tela_primary();
+	
 
     return 0;
 }                                                                                                                                             
