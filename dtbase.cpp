@@ -67,14 +67,15 @@ void database(string archive){
 }
 
 //Cria Arquivo, Adiciona cabeçalho.
+
 void construtor()
 {
-
+    cbc();
     ofstream file;
     string name_archive;
     cin.ignore(100, '\n');
     cout << "Digite o nome do Arquivo: ";
-    getline(cin, name_archive);
+    getline(cin, name_archive); cout<<endl;
     int k = verify_archive(name_archive);
 
     while(k == 1)
@@ -194,11 +195,11 @@ void add_line(string archive)
 
 void access_tables()
 {
-
+    cbc();
     string name_archive;
     cout << "Digite o nome da Tabela: ";
     cin.ignore(100, '\n');
-    getline(cin, name_archive);
+    getline(cin, name_archive);cout<<endl;
 
     int k = verify_archive(name_archive);
 

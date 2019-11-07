@@ -1,1 +1,3 @@
 Pokemons.csv
+Alunos.csv
+k.csv

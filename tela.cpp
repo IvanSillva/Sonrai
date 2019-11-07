@@ -8,6 +8,8 @@
 
 #include "dtbase.hpp"
 
+#include "tela.hpp"
+
 using namespace std;
 
 void cbc()
@@ -20,37 +22,6 @@ void cbc()
 	cout<<"███████  █  ██  █  ██   █  █  ██  ███  █  ██\n";
 	cout<<"███      █      █  ███  █  ██  █  ███  █  ██\n";
 	cout<<"████████████████████████████████████████████\n\n";
-}
-
-void list_tables()
-{
-	ifstream database;
-	database.open("database.txt");
-	string line;
-
-	while(!database.eof())
-	{
-		getline(database, line);
-		cout << line << endl;
-	}
-	database.close();
-}
-
-void tela_tables(string name_archive)
-{
-	cbc();
-	int opc;
-
-	cout<<"1 - Adicionar"<<endl;
-	cout<<endl;
-
-	cout<<"Opção: ";
-	cin>>opc;
-	cout<<endl;
-
-	if(opc == 1)
-		add_line(name_archive);
-
 }
 
 void tela_primary()
@@ -73,9 +44,65 @@ void tela_primary()
 		access_tables();
 	else if(opc == 3)
 		list_tables();
+	else if(opc == 4)
+		exit(0);
 
 
 }
+
+void list_tables()
+{
+	cbc();
+	cout<<"TABELAS"<<endl;
+	ifstream database;
+	cout<<endl;
+	database.open("database.txt");
+	string line;
+
+	while(!database.eof())
+	{
+		getline(database, line);
+		cout << line << endl;
+	}
+	
+	database.close();
+
+
+	int opc;
+	cout<<"1 - Voltar ao Menu"<<endl;
+	cout<<"0 - Sair"<<endl;
+	cout<<endl;
+	cin>>opc;
+
+	if(opc == 1)
+	{
+		tela_primary();
+	}
+	else
+	{
+		exit(0);
+	}
+
+}
+
+void tela_tables(string name_archive)
+{
+	cbc();
+	int opc;
+
+	cout<<"1 - Adicionar"<<endl;
+	cout<<endl;
+
+	cout<<"\nOpção: ";
+	cin>>opc;
+	cout<<endl;
+
+	if(opc == 1)
+		add_line(name_archive);
+
+}
+
+
 
 
 
