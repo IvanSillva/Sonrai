@@ -2,6 +2,8 @@
 
 #include <string>
 
+#include <string.h>
+
 #include <fstream>
 
 #include <stdlib.h>
@@ -91,6 +93,7 @@ void tela_tables(string name_archive)
 	int opc;
 
 	cout<<"1 - Adicionar"<<endl;
+	cout<<"2 - Printar Tabela" << endl;
 	cout<<endl;
 
 	cout<<"\nOpção: ";
@@ -99,9 +102,24 @@ void tela_tables(string name_archive)
 
 	if(opc == 1)
 		add_line(name_archive);
-
+	else if(opc == 2)
+		print_archive(name_archive);
+	else if(opc == 3)
+		//delete_line(name_archive);
+		cout << "a";
+	else if(opc == 4)
+		open_archive(name_archive);
 }
 
+void open_archive(string name_archive)
+{	
+	
+	string file = "libreoffice ";
+	file += name_archive;
+	const char* open = &file[0];
+	cout << open;
+	system(open);
+}
 
 
 

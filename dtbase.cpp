@@ -217,4 +217,17 @@ void access_tables()
 
 }
 
+void print_archive(string archive)
+{   
+    cbc();
+    ifstream print;
+    print.open(archive);
+    string line;
+    while(!print.eof())
+  {
+    getline(print, line);
+    cout << line << endl;
+  }
+    print.close();
 
+}
