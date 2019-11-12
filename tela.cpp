@@ -69,6 +69,12 @@ void list_tables()
 	
 	database.close();
 
+	tela_return();
+
+}
+
+void tela_return()
+{
 
 	int opc;
 	cout<<"1 - Voltar ao Menu"<<endl;
@@ -78,13 +84,31 @@ void list_tables()
 
 	if(opc == 1)
 	{
-		tela_primary();
+		tela_tables();
 	}
 	else
 	{
 		exit(0);
 	}
 
+}
+
+void tela_return_tables()
+{
+	int opc;
+	cout<<"1 - Voltar ao Menu"<<endl;
+	cout<<"0 - Sair"<<endl;
+	cout<<endl;
+	cin>>opc;
+
+	if(opc == 1)
+	{
+		tela_tables();
+	}
+	else
+	{
+		exit(0);
+	}
 }
 
 void tela_tables(string name_archive)
@@ -94,6 +118,9 @@ void tela_tables(string name_archive)
 
 	cout<<"1 - Adicionar"<<endl;
 	cout<<"2 - Printar Tabela" << endl;
+	cout<<"3 - Deletar Valores"<<endl;
+	cout<<"4 - Pesquisar Valor"<<endl;
+	cout<<"5 - Abrir Tabela em Planilha"<<endl;
 	cout<<endl;
 
 	cout<<"\nOpção: ";
@@ -108,6 +135,9 @@ void tela_tables(string name_archive)
 		//delete_line(name_archive);
 		cout << "a";
 	else if(opc == 4)
+		//search_line(name_archive);
+		cout<<"a";
+	else if(opc == 5)
 		open_archive(name_archive);
 }
 
@@ -119,6 +149,8 @@ void open_archive(string name_archive)
 	const char* open = &file[0];
 	cout << open;
 	system(open);
+
+	 tela_return_tables();
 }
 
 

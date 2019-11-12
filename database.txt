@@ -1,4 +1,5 @@
-Pokemons.csv
-Alunos.csv
-k.csv
-Naruto.csv
+Naruto
+pwp
+pw
+wp
+Alunos

@@ -73,34 +73,37 @@ void construtor()
     cbc();
     ofstream file;
     string name_archive;
+    string archive = "Tabelas/";
     cin.ignore(100, '\n');
     cout << "Digite o nome do Arquivo: ";
     getline(cin, name_archive); cout<<endl;
-    int k = verify_archive(name_archive);
+    archive += name_archive;
+    
+    int k = verify_archive(archive);
 
     while(k == 1)
     {
       cout << "Arquivo já existente, digite outro: ";
-      getline(cin, name_archive);
-      k = verify_archive(name_archive);
+      getline(cin, archive);
+      k = verify_archive(archive);
     }
-    name_archive+=".csv";
-    file.open(name_archive, ios::app);
+    archive+=".csv";
+    file.open(archive, ios::app);
 
-    primary_key(name_archive);
+    primary_key(archive);
 
     cout << "Digite o numero de colunas: ";
     int x;
     cin >> x; 
 
     colunas temp[x];
-
+    cin.ignore(100, '\n');
     for(int i=0; i<x; i++)
-    {
+    { 
       cout << "Digite o nome da " << i+1 <<"º coluna: ";
-      cin >> temp[i].name;
+      getline(cin, temp[i].name);
       cout << "Digite o tipo da " << i+1 <<"º coluna: ";
-      cin >> temp[i].type;
+      getline(cin, temp[i].type);
     }
 
 
@@ -126,7 +129,6 @@ void construtor()
 
 int verify_archive(string archive)
 { 
-      archive += ".csv";
       ifstream verify;
       verify.open("database.txt");
       string line;
@@ -190,6 +192,7 @@ void add_line(string archive)
     scanner.close();
     write.close();
 
+    tela_return_tables();
 
 }
 
@@ -197,11 +200,13 @@ void access_tables()
 {
     cbc();
     string name_archive;
+    string archive = "Tabelas/";
     cout << "Digite o nome da Tabela: ";
     cin.ignore(100, '\n');
     getline(cin, name_archive);cout<<endl;
 
     int k = verify_archive(name_archive);
+    cout << name_archive << endl;
 
      while(k != 1)
     {
@@ -211,9 +216,13 @@ void access_tables()
 
     }
 
-    name_archive+=".csv";
+    archive += name_archive;
 
-    tela_tables(name_archive);
+    
+
+    archive+=".csv";
+
+    tela_tables(archive);
 
 }
 
@@ -228,6 +237,8 @@ void print_archive(string archive)
     getline(print, line);
     cout << line << endl;
   }
-    print.close();
 
+   tela_return_tables();
 }
+
+
