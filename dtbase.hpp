@@ -32,9 +32,10 @@ class Tabela
 };
 
 void construtor();
-void database(string archive);
 void primary_key(string archive);
 int verify_archive(string archive);
 void access_tables();
 void add_line(string archive);
 void print_archive(string archive);
+void delete_line(string name_archive);
+void delete_tables();

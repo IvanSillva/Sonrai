@@ -33,7 +33,8 @@ void tela_primary()
 	cout<<"1 - Criar Tabela"<<endl;
 	cout<<"2 - Acessar Tabela"<<endl;
 	cout<<"3 - Listar Tabela"<<endl;
-	cout<<"4 - Sair"<<endl;
+	cout<<"4 - Deletar Tabelas"<<endl;
+	cout<<"5 - Sair"<<endl;
 	cout<<endl;
 
 	int opc;
@@ -45,8 +46,13 @@ void tela_primary()
 	else if(opc ==2)
 		access_tables();
 	else if(opc == 3)
+	{
 		list_tables();
+		tela_return();
+	}
 	else if(opc == 4)
+		delete_tables();
+	else if(opc == 5)
 		exit(0);
 
 
@@ -73,8 +79,7 @@ void tela_tables(string name_archive)
 	else if(opc == 2)
 		print_archive(name_archive);
 	else if(opc == 3)
-		//delete_line(name_archive);
-		cout << "a";
+		delete_line(name_archive);
 	else if(opc == 4)
 		//search_line(name_archive);
 		cout<<"a";
@@ -103,23 +108,15 @@ void tela_return_tables(string name_archive)
 
 
 void list_tables()
-{
+{	
 	cbc();
-	cout<<"TABELAS"<<endl;
-	ifstream database;
-	cout<<endl;
-	database.open("database.txt");
-	string line;
+	system("ls -F -1 Tabelas/");
+ 	cout << endl;
+}
 
-	while(!database.eof())
-	{
-		getline(database, line);
-		cout << line << endl;
-	}
-	
-	database.close();
 
-	cout<<endl;
+void tela_return()
+{
 
 	int opc;
 	cout<<"1 - Voltar ao Menu          ";
@@ -130,27 +127,6 @@ void list_tables()
 	if(opc == 1)
 	{
 		tela_primary();
-	}
-	else
-	{
-		exit(0);
-	}
-
-}
-
-
-void tela_return(string name_archive)
-{
-
-	int opc;
-	cout<<"1 - Voltar ao Menu          ";
-	cout<<"0 - Sair"<<endl;
-	cout<<endl;
-	cin>>opc;
-
-	if(opc == 1)
-	{
-		tela_tables(name_archive);
 	}
 	else
 	{

@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include <stdio.h>
+
 #include <string>
 
 #include <fstream>
@@ -59,12 +61,6 @@ void Tabela::write_file(string archive, string line)
 }
 
 //=======================================================
-void database(string archive){
-  ofstream data;
-  data.open("database.txt", ios::app);
-  data<<archive<<endl;
-  data.close();
-}
 
 //Cria Arquivo, Adiciona cabeçalho.
 
@@ -78,15 +74,8 @@ void construtor()
     cout << "Digite o nome do Arquivo: ";
     getline(cin, name_archive); cout<<endl;
     archive += name_archive;
-    
-    int k = verify_archive(archive);
 
-    while(k == 1)
-    {
-      cout << "Arquivo já existente, digite outro: ";
-      getline(cin, archive);
-      k = verify_archive(archive);
-    }
+    
     archive+=".csv";
     file.open(archive, ios::app);
 
@@ -120,26 +109,10 @@ void construtor()
   
       }
       file<<endl;
-      database(name_archive);
       file.close();
 
       tela_primary();
  
-}
-
-int verify_archive(string archive)
-{ 
-      ifstream verify;
-      verify.open("database.txt");
-      string line;
-      while(!verify.eof())
-      {
-        getline(verify, line);
-        if(line == archive)
-          return 1;
-      }
-      verify.close();
-       return 0;
 }
 
 
@@ -207,23 +180,29 @@ void access_tables()
     cout << "Digite o nome da Tabela: ";
     cin.ignore(100, '\n');
     getline(cin, name_archive);cout<<endl;
-
-    int k = verify_archive(name_archive);
-    cout << name_archive << endl;
-
-     while(k != 1)
-    {
-      cout << "Arquivo não existente, digite outro: ";
-      getline(cin, name_archive);
-      k = verify_archive(name_archive);
-
-    }
-
     archive += name_archive;
+    cout<< archive << endl;
+    archive+=".csv";
+    fstream Archive;
+    Archive.open(archive);
+
+     while(!Archive)
+    { 
+      Archive.close();
+      cout << "Arquivo não existente, digite outro: ";
+      string archive = "Tabelas/";
+      getline(cin, name_archive);
+      archive += name_archive;
+      archive +=".csv";
+      fstream Archive;
+      Archive.open(archive,ios_base::in);
+      cout<< archive << endl;
+    }
 
     
 
-    archive+=".csv";
+    
+    Archive.close();
 
     tela_tables(archive);
 
@@ -245,3 +224,32 @@ void print_archive(string archive)
 }
 
 
+void delete_line(string name_archive)
+{ 
+}
+
+void delete_tables()
+{
+  list_tables();
+
+  string table;
+  string archive = "Tabelas/";
+
+  cout<<"Qual Tabela deseja deletar? ";
+  cin.ignore(100, '\n');
+  getline(cin, table);
+
+  archive+=table;
+
+
+  const char* Delete = &archive[0];
+
+
+  remove(Delete);
+
+
+  
+  
+
+
+}
