@@ -161,7 +161,7 @@ void primary_key(string archive)
 
 void add_line(string archive)
 {   
-
+    cbc();
     ofstream write;
     write.open(archive, ios::app);
   
@@ -180,7 +180,7 @@ void add_line(string archive)
         temp += line[i];   
         }else if(line[i] == ','){
           string infile;
-          cout << "Digite " << temp << ":";
+          cout << "Digite " << temp << ": ";
           getline(cin, infile);
           w_file.write_file(archive,infile);
           temp.clear();
@@ -192,7 +192,10 @@ void add_line(string archive)
     scanner.close();
     write.close();
 
-    tela_return_tables();
+    cout<<endl;
+
+
+    tela_return_tables(archive);
 
 }
 
@@ -238,7 +241,7 @@ void print_archive(string archive)
     cout << line << endl;
   }
 
-   tela_return_tables();
+   tela_return_tables(archive);
 }
 
 

@@ -52,65 +52,6 @@ void tela_primary()
 
 }
 
-void list_tables()
-{
-	cbc();
-	cout<<"TABELAS"<<endl;
-	ifstream database;
-	cout<<endl;
-	database.open("database.txt");
-	string line;
-
-	while(!database.eof())
-	{
-		getline(database, line);
-		cout << line << endl;
-	}
-	
-	database.close();
-
-	tela_return();
-
-}
-
-void tela_return()
-{
-
-	int opc;
-	cout<<"1 - Voltar ao Menu"<<endl;
-	cout<<"0 - Sair"<<endl;
-	cout<<endl;
-	cin>>opc;
-
-	if(opc == 1)
-	{
-		tela_tables();
-	}
-	else
-	{
-		exit(0);
-	}
-
-}
-
-void tela_return_tables()
-{
-	int opc;
-	cout<<"1 - Voltar ao Menu"<<endl;
-	cout<<"0 - Sair"<<endl;
-	cout<<endl;
-	cin>>opc;
-
-	if(opc == 1)
-	{
-		tela_tables();
-	}
-	else
-	{
-		exit(0);
-	}
-}
-
 void tela_tables(string name_archive)
 {
 	cbc();
@@ -141,6 +82,85 @@ void tela_tables(string name_archive)
 		open_archive(name_archive);
 }
 
+
+void tela_return_tables(string name_archive)
+{
+	int opc;
+	cout<<"1 - Voltar ao Menu          ";
+	cout<<"0 - Sair"<<endl;
+	cout<<endl;
+	cin>>opc;
+
+	if(opc == 1)
+	{
+		tela_tables(name_archive);
+	}
+	else
+	{
+		exit(0);
+	}
+}
+
+
+void list_tables()
+{
+	cbc();
+	cout<<"TABELAS"<<endl;
+	ifstream database;
+	cout<<endl;
+	database.open("database.txt");
+	string line;
+
+	while(!database.eof())
+	{
+		getline(database, line);
+		cout << line << endl;
+	}
+	
+	database.close();
+
+	cout<<endl;
+
+	int opc;
+	cout<<"1 - Voltar ao Menu          ";
+	cout<<"0 - Sair"<<endl;
+	cout<<endl;
+	cin>>opc;
+
+	if(opc == 1)
+	{
+		tela_primary();
+	}
+	else
+	{
+		exit(0);
+	}
+
+}
+
+
+void tela_return(string name_archive)
+{
+
+	int opc;
+	cout<<"1 - Voltar ao Menu          ";
+	cout<<"0 - Sair"<<endl;
+	cout<<endl;
+	cin>>opc;
+
+	if(opc == 1)
+	{
+		tela_tables(name_archive);
+	}
+	else
+	{
+		exit(0);
+	}
+
+}
+
+
+
 void open_archive(string name_archive)
 {	
 	
@@ -150,7 +170,10 @@ void open_archive(string name_archive)
 	cout << open;
 	system(open);
 
-	 tela_return_tables();
+	cout<<endl;
+	cout<<endl;
+
+	 tela_return_tables(name_archive);
 }
 
 
