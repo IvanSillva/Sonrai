@@ -225,7 +225,37 @@ void print_archive(string archive)
 
 
 void delete_line(string name_archive)
-{ 
+{  
+  string archive = "Tabelas/";
+  ifstream Archive;
+  archive += name_archive;
+  archive += ".csv";
+  Archive.open(name_archive);
+  string info;
+  cout << "Digite a Matricula:" << endl;
+  cin.ignore(100, '\n');
+  getline(cin, info);
+  ofstream ArchiveTemp;
+  ArchiveTemp.open("Tabelas/NULL.csv", ios::app);
+  while(!Archive.eof()){
+    string line;
+    string valor;
+    getline(Archive, line);
+    for(int i = 0; i<line.length() ; i++){ 
+      if(line[i] == ','){
+        cout << "=====" << valor << "==" << info << endl;
+        if(valor == info)
+        { 
+        }else{
+          ArchiveTemp << line << endl;
+        }
+        break;
+      }else{
+        valor += line[i];
+      }
+    }
+  }
+  
 }
 
 void delete_tables()
