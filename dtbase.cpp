@@ -188,19 +188,14 @@ void access_tables()
 
      while(!Archive)
     { 
-      Archive.close();
       cout << "Arquivo não existente, digite outro: ";
       string archive = "Tabelas/";
       getline(cin, name_archive);
       archive += name_archive;
       archive +=".csv";
-      fstream Archive;
       Archive.open(archive,ios_base::in);
       cout<< archive << endl;
-    }
-
-    
-
+    }    
     
     Archive.close();
 
@@ -227,23 +222,29 @@ void print_archive(string archive)
 void delete_line(string name_archive)
 {  
   string archive = "Tabelas/";
+
   ifstream Archive;
+
   archive += name_archive;
-  archive += ".csv";
+
   Archive.open(name_archive);
+
   string info;
+
   cout << "Digite a Matricula:" << endl;
   cin.ignore(100, '\n');
   getline(cin, info);
+
   ofstream ArchiveTemp;
   ArchiveTemp.open("Tabelas/NULL.csv", ios::app);
+
   while(!Archive.eof()){
     string line;
     string valor;
     getline(Archive, line);
     for(int i = 0; i<line.length() ; i++){ 
       if(line[i] == ','){
-        cout << "=====" << valor << "==" << info << endl;
+       
         if(valor == info)
         { 
         }else{
@@ -255,6 +256,24 @@ void delete_line(string name_archive)
       }
     }
   }
+
+  ArchiveTemp.close();
+  Archive.close();
+  cout << archive << "==========";
+
+  const char* Delete = &archive[0];
+
+  remove(Delete);
+ 
+
+  string file = "mv Tabelas/NULL.csv ";
+  file+=name_archive;
+
+  const char* rename = &file[0];
+
+  system(rename);
+
+
   
 }
 
@@ -276,10 +295,6 @@ void delete_tables()
 
 
   remove(Delete);
-
-
-  
-  
 
 
 }
