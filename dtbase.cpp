@@ -209,12 +209,13 @@ void print_archive(string archive)
     ifstream print;
     print.open(archive);
     string line;
+    cout<<"███████████████████████████████████████████████████████"<< endl << endl;
     while(!print.eof())
   {
     getline(print, line);
     cout << line << endl;
   }
-
+    cout<<"███████████████████████████████████████████████████████" << endl << endl;
    tela_return_tables(archive);
 }
 
