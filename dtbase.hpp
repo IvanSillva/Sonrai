@@ -39,3 +39,8 @@ void add_line(string archive);
 void print_archive(string archive);
 void delete_line(string name_archive);
 void delete_tables();
+void search_line_1(string name_archive, int value);
+void search_line_2(string name_archive, int value);
+void search_line_3(string name_archive, int value);
+void search_line_4(string name_archive, int value);
+void search_line_5(string name_archive, int value);

@@ -15,3 +15,6 @@ void tela_tables(string name_archive);
 void open_archive(string name_archive);
 void tela_return();
 void tela_return_tables(string name_archive);
+void tela_search(string name_archive);
+void tela_search_value(string name_archive, int value);
+void tela_return_search(string name_archive);

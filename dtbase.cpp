@@ -189,15 +189,16 @@ void access_tables()
      while(!Archive)
     { 
       cout << "Arquivo não existente, digite outro: ";
-      string archive = "Tabelas/";
+      archive.clear();
+      archive = "Tabelas/";
       getline(cin, name_archive);
       archive += name_archive;
       archive +=".csv";
       Archive.open(archive,ios_base::in);
-      cout<< archive << endl;
     }    
     
     Archive.close();
+
 
     tela_tables(archive);
 
@@ -298,4 +299,289 @@ void delete_tables()
   remove(Delete);
 
 
+}
+void search_line_1(string name_archive, int value)
+{   
+    fstream search;
+    search.open(name_archive);
+    string line;
+    string temp;
+    string str;
+    cout<<"Informe o Valor: ";
+    cin.ignore(100, '\n');
+    getline(cin, str);
+
+    int flag=0, result=0;
+
+    cout<<endl;
+
+    while(!search.eof())
+    {
+        int n = 0;
+        getline(search, line);
+        for(int i = 0; i < line.length(); i++)
+        {
+            if(line[i] == ',')
+            {
+                n++;
+
+                if(temp > str && n == value)
+                {
+                    if(flag ==0)
+                    { 
+
+                      cout<<"Resultados da Pesquisa: "<<endl;
+
+                    }
+                    cout << line <<  endl;
+                    flag++;
+                    result++;
+                }
+                temp.clear();
+            }
+            else
+            {
+                temp += line[i];
+            }
+        }
+    }
+
+    search.close();
+
+    if(flag == 0)
+    {   
+        cout<<endl;
+        cout<<"Não foram encontrados resultados para o valor informado!"<<endl;
+    }
+
+    tela_return_search(name_archive);
+
+}
+
+void search_line_2(string name_archive, int value)
+{   
+    fstream search;
+    search.open(name_archive);
+    string line;
+    string temp;
+    string str;
+    cout<<"Informe o Valor: ";
+    cin.ignore(100, '\n');
+    getline(cin, str);
+
+    int flag=0, result=0;
+
+    cout<<endl;
+
+    while(!search.eof())
+    {
+        int n = 0;
+        getline(search, line);
+        for(int i = 0; i < line.length(); i++)
+        {
+            if(line[i] == ',')
+            {
+                n++;
+
+                if(temp >= str && n == value)
+                {
+                    if(flag ==0)
+                    { 
+
+                      cout<<"Resultados da Pesquisa: "<<endl;
+
+                    }
+                    cout << line <<  endl;
+                    flag++;
+                    result++;
+                }
+                temp.clear();
+            }
+            else
+            {
+                temp += line[i];
+            }
+        }
+    }
+
+    search.close();
+
+    if(flag == 0)
+    {   
+        cout<<endl;
+        cout<<"Não foram encontrados resultados para o valor informado!"<<endl;
+    }
+
+    tela_return_search(name_archive);
+}
+
+void search_line_3(string name_archive, int value)
+{   
+    fstream search;
+    search.open(name_archive);
+    string line;
+    string temp;
+    string str;
+    cout<<"Informe o Valor: ";
+    cin.ignore(100, '\n');
+    getline(cin, str);
+
+    int flag=0, result=0;
+
+    cout<<endl;
+
+    while(!search.eof())
+    {
+        int n = 0;
+        getline(search, line);
+        for(int i = 0; i < line.length(); i++)
+        {
+            if(line[i] == ',')
+            {
+                n++;
+
+                if(temp == str && n == value)
+                {
+                    if(flag ==0)
+                    { 
+
+                      cout<<"Resultados da Pesquisa: "<<endl;
+
+                    }
+                    cout << line <<  endl;
+                    flag++;
+                    result++;
+                }
+                temp.clear();
+            }
+            else
+            {
+                temp += line[i];
+            }
+        }
+    }
+
+    search.close();
+
+    if(flag == 0)
+    {   
+        cout<<endl;
+        cout<<"Não foram encontrados resultados para o valor informado!"<<endl;
+    }
+
+    tela_return_search(name_archive);
+}
+
+void search_line_4(string name_archive, int value)
+{   
+    fstream search;
+    search.open(name_archive);
+    string line;
+    string temp;
+    string str;
+    cout<<"Informe o Valor: ";
+    cin.ignore(100, '\n');
+    getline(cin, str);
+
+    int flag=0, result=0;
+
+    cout<<endl;
+
+    while(!search.eof())
+    {
+        int n = 0;
+        getline(search, line);
+        for(int i = 0; i < line.length(); i++)
+        {
+            if(line[i] == ',')
+            {
+                n++;
+
+                if(temp < str && n == value)
+                {
+                    if(flag ==0)
+                    { 
+
+                      cout<<"Resultados da Pesquisa: "<<endl;
+
+                    }
+                    cout << line <<  endl;
+                    flag++;
+                    result++;
+                }
+                temp.clear();
+            }
+            else
+            {
+                temp += line[i];
+            }
+        }
+    }
+
+    search.close();
+
+    if(flag == 0)
+    {   
+        cout<<endl;
+        cout<<"Não foram encontrados resultados para o valor informado!"<<endl;
+    }
+
+    tela_return_search(name_archive);
+}
+
+void search_line_5(string name_archive, int value)
+{   
+    fstream search;
+    search.open(name_archive);
+    string line;
+    string temp;
+    string str;
+    cout<<"Informe o Valor: ";
+    cin.ignore(100, '\n');
+    getline(cin, str);
+
+    int flag=0, result=0;
+
+    cout<<endl;
+
+    while(!search.eof())
+    {
+        int n = 0;
+        getline(search, line);
+        for(int i = 0; i < line.length(); i++)
+        {
+            if(line[i] == ',')
+            {
+                n++;
+
+                if(temp <= str && n == value)
+                {
+                    if(flag ==0)
+                    { 
+
+                      cout<<"Resultados da Pesquisa: "<<endl;
+
+                    }
+                    cout << line <<  endl;
+                    flag++;
+                    result++;
+                }
+                temp.clear();
+            }
+            else
+            {
+                temp += line[i];
+            }
+        }
+    }
+
+    search.close();
+
+    if(flag == 0)
+    {   
+        cout<<endl;
+        cout<<"Não foram encontrados resultados para o valor informado!"<<endl;
+    }
+
+    tela_return_search(name_archive);
 }
