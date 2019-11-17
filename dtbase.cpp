@@ -484,7 +484,7 @@ void search_line_4(string name_archive, int value)
     getline(cin, str);
 
     int flag=0, result=0;
-
+    int flag2 = 0;
     cout<<endl;
 
     while(!search.eof())
@@ -492,13 +492,18 @@ void search_line_4(string name_archive, int value)
         int n = 0;
         getline(search, line);
         for(int i = 0; i < line.length(); i++)
-        {
+        {    
             if(line[i] == ',')
             {
                 n++;
 
                 if(temp < str && n == value)
-                {
+                {   
+
+                    flag2++;
+                    if(flag2== 1)
+                  test_type(temp);
+
                     if(flag ==0)
                     { 
 
@@ -509,6 +514,7 @@ void search_line_4(string name_archive, int value)
                     flag++;
                     result++;
                 }
+                
                 temp.clear();
             }
             else
@@ -574,7 +580,6 @@ void search_line_5(string name_archive, int value)
             }
         }
     }
-
     search.close();
 
     if(flag == 0)
@@ -584,4 +589,27 @@ void search_line_5(string name_archive, int value)
     }
 
     tela_return_search(name_archive);
+}
+
+void test_type(string info)
+{ 
+  string temp;
+  for(int i = 0; i<info.length(); i++){
+    if(info[i] == '(')
+    {  
+      cout << info[i+1] << endl;
+      if(info[i+1] == 'i')
+        cout << "int" << endl;
+      else if(info[i+1] == 'f')
+        cout << "double" << endl;
+      else if(info[i+1] == 's')
+        cout << "string" << endl;
+      else if(info[i+1] == 'c')
+        cout << "char" << endl;
+      else if(info[i+1] == 'd')
+        cout << "double" << endl;
+      else
+        cout << "Nenhum tipo" << endl;
+    }
+  }
 }

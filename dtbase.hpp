@@ -44,3 +44,4 @@ void search_line_2(string name_archive, int value);
 void search_line_3(string name_archive, int value);
 void search_line_4(string name_archive, int value);
 void search_line_5(string name_archive, int value);
+void test_type(string info);
