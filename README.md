@@ -13,7 +13,7 @@ Modo de uso
 
 	Abra o terminal na pasta do projeto e digite o seguinte:
 
-	$ g++ startup.cpp
+	$ g++ startup.cpp -std=c++11
 	
 	Para inicialização, digite o seguinte comando:
 
