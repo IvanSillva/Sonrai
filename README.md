@@ -6,7 +6,7 @@ Ivan Batista da Silva
 Jorge Confessor de Moura Junior
 Vitoria Maria Lucio Deon  
 	
-Programa desenvolvido em linguagem C++ para criar um sistema de gerenciamento de banco de dados. Com o intuito de servir como atividade avaliativa na disciplina de Linguagem de Programação I alocada ao Curso de Bacharelado em T.I. lotado no Instituto Metropóle Digital. Todas as funcionalidades pedidas no documento foram implementadas, além delas implementamos uma função extra em que o usuário pode abrir a sua tabela no libreofice direto do terminal e visualizá-la no programa.  
+Programa desenvolvido em linguagem C++ para criar um sistema de gerenciamento de banco de dados. Com o intuito de servir como atividade avaliativa na disciplina de Linguagem de Programação I alocada ao Curso de Bacharelado em T.I. lotado no Instituto Metropóle Digital. Quase todas as funcionalidades pedidas no documento foram implementadas, faltando apenas a utilização de chaves estrangeiras. Além delas implementamos uma função extra em que o usuário pode abrir a sua tabela no libreoffice direto do terminal e visualizá-la no programa.  
 
 
 Modo de uso
@@ -36,7 +36,7 @@ Funções disponíveis
 	  5.3 - Valores igual o valor informado (Feito por Ivan,Jorge e Vitoria) 
 	  5.4 - Valores menor que o valor informado (Feito por Ivan,Jorge e Vitoria) 
 	  5.5 - Valores menor ou igual que o valor informado (Feito por Ivan,Jorge e Vitoria) 
-	  5.6 - Valores próximo ao valor informado (Feito por Jorge)
+	  5.6 - Valores próximo ao valor informado (Não foi implementada)
 	 
 	6. Apagar valor (Feito por Ivan,Jorge e Vitoria)
 
