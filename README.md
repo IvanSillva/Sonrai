@@ -42,5 +42,5 @@ Funções disponíveis
 
 	7. Apagar Tabelas (Feito por Ivan,Jorge e Vitoria)
 
-	Ao implementar a função de deletar valores da tabela, optamos por utilizar o método de criar um novo arquivo, passar as informações para esse novo arquivo sem a informação da linha que o usuário gostaria de deletar, e renomear esse novo arquivo com mesmo nome do original. Dessa forma entedemos que há uma forma mais simples de implementar isso, como por exemplo, fazer a alteração no mesmo arquivo sem a necessidade da criação de outro e salva-lo, deixando o codigo mais limpo e programa mais rápido e leve. 
+	Ao implementar a função de deletar valores da tabela, optamos por utilizar o método de criar um novo arquivo, passar as informações para esse novo arquivo sem a informação da linha que o usuário gostaria de deletar, e renomear esse novo arquivo com mesmo nome do original. Dessa forma entedemos que há uma forma mais simples de implementar isso, como por exemplo, fazer a alteração no mesmo arquivo sem a necessidade da criação de outro e salva-lo, deixando o codigo mais limpo e programa com tempo de execução menor. 
 
